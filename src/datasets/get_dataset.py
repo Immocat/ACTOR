@@ -1,14 +1,24 @@
-def get_dataset(name="ntu13"):
-    if name == "ntu13":
-        from .ntu13 import NTU13
-        return NTU13
-    elif name == "uestc":
-        from .uestc import UESTC
-        return UESTC
-    elif name == "humanact12":
-        from .humanact12poses import HumanAct12Poses
-        return HumanAct12Poses
+# def get_dataset(name="ntu13"):
+#     if name == "ntu13":
+#         from .ntu13 import NTU13
+#         return NTU13
+#     elif name == "uestc":
+#         from .uestc import UESTC
+#         return UESTC
+#     elif name == "humanact12":
+#         from .humanact12poses import HumanAct12Poses
+#         return HumanAct12Poses
 
+def get_dataset(name="mike"):
+    if name == "mike":
+        from .mike import MikeDataset
+        return MikeDataset
+    # elif name == "uestc":
+    #     from .uestc import UESTC
+    #     return UESTC
+    # elif name == "humanact12":
+    #     from .humanact12poses import HumanAct12Poses
+    #     return HumanAct12Poses
 
 def get_datasets(parameters):
     name = parameters["dataset"]
