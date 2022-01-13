@@ -108,18 +108,18 @@ class Pipeline:
         return x
 
 
-# class AudioToLogMelSpec(Transform):
+class AudioToLogMelSpec(Transform):
 
-#     def __init__(self, kwargs=None):
-#         default = {'window_length': 0.1, 'dim': 64}
-#         super().__init__(default.update(kwargs) if kwargs is not None else default)
+    def __init__(self, kwargs=None):
+        default = {'window_length': 0.1, 'dim': 64}
+        super().__init__(default.update(kwargs) if kwargs is not None else default)
 
-#     def apply(self, input):
-#         audio, sample_rate = input
-#         spectr = librosa.feature.melspectrogram(audio, sr=sample_rate, window=scipy.signal.hanning,
-#                                                 # win_length=int(window_length * sample_rate),
-#                                                 hop_length=int(self.kwargs['window_length'] * sample_rate / 2),
-#                                                 fmax=7500, fmin=125, n_mels=self.kwargs['dim'])
-#         eps = 1e-6
-#         log_spectr = np.log(abs(spectr) + eps)
-#         return np.transpose(log_spectr)
+    def apply(self, input):
+        audio, sample_rate = input
+        spectr = librosa.feature.melspectrogram(audio, sr=sample_rate, window=scipy.signal.hanning,
+                                                # win_length=int(window_length * sample_rate),
+                                                hop_length=int(self.kwargs['window_length'] * sample_rate / 2),
+                                                fmax=7500, fmin=125, n_mels=self.kwargs['dim'])
+        eps = 1e-6
+        log_spectr = np.log(abs(spectr) + eps)
+        return np.transpose(log_spectr)
